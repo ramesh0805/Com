@@ -1,0 +1,146 @@
+package com.example.nkredy.mrcet;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+public class MainActivity extends AppCompatActivity {
+// These are the global variables
+EditText editName, editPassword,editAddress,editAge;
+TextView result;
+RadioGroup radioGenderGroup;
+ivate RadioButton radioGenderButton;
+Button buttonSubmit;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+editName = (EditText) findViewById(R.id.editName);
+editPassword = (EditText) findViewById(R.id.editPassword);
+editAddress = (EditText) findViewById(R.id.editAddres);
+editAge = (EditText) findViewById(R.id.editAge);
+radioSexGender = (RadioGroup) findViewById(R.id.radioGender);
+
+result = (TextView) findViewById(R.id.tvResult);
+buttonSubmit = (Button) findViewById(R.id.buttonSubmit);
+buttonSubmit.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+String name = editName.getText().toString();
+
+String password = editPassword.getText().toString();
+String address= editAddress.getText().toString();
+int selectedId = radioGenderGroup.getCheckedRadioButtonId();
+// find the radiobutton by returned id
+gen = (RadioButton) findViewById(selectedId);
+result.setText("Name:\t" + name + "\nPassword:\t" + password+ "\nAddredd:\t" +
+address+ "\nAGE:\t" + age+ "\nGender:\t" + gen);
+}
+});
+
+}
+}
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#FFFF8D"
+tools:context="com.example.akshay.mrcet.MainActivity">
+<TextView
+android:id="@+id/textView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentLeft="true"
+android:layout_alignParentStart="true"
+android:layout_alignParentTop="true"
+android:text="NAME"
+android:textSize="20sp"
+android:layout_margin="20dp" />
+<TextView
+android:id="@+id/textView2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textSize="20sp"
+android:text="PASSWORD"
+android:layout_marginTop="38dp"
+android:layout_below="@+id/textView"
+
+android:layout_alignLeft="@+id/textView"
+android:layout_alignStart="@+id/textView" />
+<EditText
+android:id="@+id/editName"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:ems="10"
+android:inputType="textPersonName"
+android:hint="Enter Name"
+android:layout_alignParentTop="true"
+android:layout_alignParentRight="true"
+android:layout_alignParentEnd="true"
+android:layout_alignLeft="@+id/editPassword"
+android:layout_alignStart="@+id/editPassword" />
+<EditText
+android:id="@+id/editPassword"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:ems="10"
+android:hint="Enter Password"
+android:inputType="textPassword"
+android:layout_alignBottom="@+id/textView2"
+android:layout_alignParentRight="true"
+android:layout_alignParentEnd="true"
+android:layout_marginRight="18dp"
+android:layout_marginEnd="18dp" />
+<EditText
+android:id="@+id/editAddress"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginRight="18dp"
+android:layout_marginEnd="18dp" />
+<EditText
+android:id="@+id/editAge"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginRight="18dp"
+android:layout_marginEnd="18dp" />
+<RadioGroup
+android:id="@+id/radioGender"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content" >
+<RadioButton
+android:id="@+id/radioMale"
+android:layout_width="wrap_content"
+
+android:layout_height="wrap_content"
+android:text="@string/radio_male"
+android:checked="true" />
+<RadioButton
+android:id="@+id/radioFemale"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="@string/radio_female" />
+</RadioGroup>
+
+<Button
+android:id="@+id/buttonSubmit"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentLeft="true"
+android:layout_alignParentStart="true"
+android:layout_below="@+id/textView2"
+android:layout_marginTop="20dp"
+android:text="SUBMIT" />
+<TextView
+android:id="@+id/tvResult"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentBottom="true"
+android:layout_alignParentLeft="true"
+android:layout_alignParentStart="true"
+android:layout_marginBottom="143dp"
+android:textSize="30sp" /></RelativeLayout>
+
